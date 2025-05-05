@@ -20,9 +20,9 @@ public class EventoRepositoryTest {
     public void guardarEventoTest(){
         //Arrange
         Evento evento = new Evento();
-        evento.setTipo("Lugar1");
-        evento.setLugar("Nicolas Escobar");
-        evento.setFecha("Accion");
+        evento.setTipo("Competencia");
+        evento.setLugar("Parque");
+        evento.setFecha("Lunes");
        
 
         //Act
@@ -30,7 +30,7 @@ public class EventoRepositoryTest {
 
         //Assert
         assertNotNull(resultado.getId());
-        assertEquals("Lugar1", resultado.getTipo());
+        assertEquals("Competencia", resultado.getTipo());
     }
 
     //guardar evento y luego buscarlo por id

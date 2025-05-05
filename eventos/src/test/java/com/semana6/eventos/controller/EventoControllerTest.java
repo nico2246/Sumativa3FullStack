@@ -33,15 +33,15 @@ public class EventoControllerTest {
         //Arrange
         //Creacion de eventos
         Evento evento1 = new Evento();
-        evento1.setTipo("Lugar1");
-        evento1.setLugar("Nicolas Escobar");
-        evento1.setFecha("Accion");
+        evento1.setTipo("Competencia");
+        evento1.setLugar("Parque Bicentenario");
+        evento1.setFecha("10-04-25");
      
 
         Evento evento2 = new Evento();
-        evento2.setTipo("Lugar2");
-        evento2.setLugar("Barbara Lillo");
-        evento2.setFecha("Infantil");
+        evento2.setTipo("Concurso Belleza");
+        evento2.setLugar("Centro civico");
+        evento2.setFecha("11-04-25");
     
 
         
@@ -53,8 +53,8 @@ public class EventoControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.get("/eventos"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$", Matchers.aMapWithSize(2)))
-                .andExpect(MockMvcResultMatchers.jsonPath("$._embedded.eventoList[0].tipo", Matchers.is("Lugar1")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$._embedded.eventoList[1].tipo", Matchers.is("Lugar2")));
+                .andExpect(MockMvcResultMatchers.jsonPath("$._embedded.eventoList[0].tipo", Matchers.is("Competencia")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$._embedded.eventoList[1].tipo", Matchers.is("Concurso Belleza")));
                 
     }
 
@@ -67,7 +67,7 @@ public class EventoControllerTest {
         evento.setId(1L);
         evento.setTipo("Carrera");
         evento.setLugar("Santiago");
-        evento.setFecha("2025-05-01");
+        evento.setFecha("10-04-25");
     
         when(eventoServicioMock.getEventoById(1L)).thenReturn(Optional.of(evento));
     
@@ -77,7 +77,7 @@ public class EventoControllerTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(1L))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.tipo").value("Carrera"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.lugar").value("Santiago"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.fecha").value("2025-05-01"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.fecha").value("10-04-25"));
     }
     
 

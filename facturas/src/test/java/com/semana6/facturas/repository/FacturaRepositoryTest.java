@@ -20,9 +20,9 @@ public class FacturaRepositoryTest {
     public void guardarEventoTest(){
         //Arrange
         Factura factura = new Factura();
-        factura.setNombreMascota("Lugar1");
+        factura.setNombreMascota("Firulais");
         factura.setNombreMedico("Nicolas Escobar");
-        factura.setDetalleServicio("Accion");
+        factura.setDetalleServicio("Consulta medica");
         factura.setValorTotalServicio(20000);
        
 
@@ -31,7 +31,7 @@ public class FacturaRepositoryTest {
 
         //Assert
         assertNotNull(resultado.getId());
-        assertEquals("Lugar1", resultado.getNombreMascota());
+        assertEquals("Firulais", resultado.getNombreMascota());
     }
 
     // guarda una factura y luego la busca por id
@@ -40,9 +40,9 @@ public class FacturaRepositoryTest {
         // Arrange
         Factura factura = new Factura();
         factura.setId(2L);
-        factura.setNombreMascota("Lugar2");
+        factura.setNombreMascota("Mishishi");
         factura.setNombreMedico("Nicolas Escobar");
-        factura.setDetalleServicio("Accion");
+        factura.setDetalleServicio("Consulta medica");
         factura.setValorTotalServicio(20000);
 
         Factura guardado = facturaRepository.save(factura);
@@ -53,9 +53,9 @@ public class FacturaRepositoryTest {
         // Assert
         assertNotNull(encontrado);
         assertEquals(2L, encontrado.getId());
-        assertEquals("Lugar2", encontrado.getNombreMascota());
+        assertEquals("Mishishi", encontrado.getNombreMascota());
         assertEquals("Nicolas Escobar", encontrado.getNombreMedico());
-        assertEquals("Accion", encontrado.getDetalleServicio());
+        assertEquals("Consulta medica", encontrado.getDetalleServicio());
         assertEquals(20000, encontrado.getValorTotalServicio());
     }
     

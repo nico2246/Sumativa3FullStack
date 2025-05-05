@@ -31,16 +31,16 @@ public class FacturaControllerTest {
         //Arrange
         //Creacion de facturas
         Factura factura1 = new Factura();
-        factura1.setNombreMascota("Lugar1");
+        factura1.setNombreMascota("Firulais");
         factura1.setNombreMedico("Nicolas Escobar");
-        factura1.setDetalleServicio("Accion");
+        factura1.setDetalleServicio("Consulta medica");
         factura1.setValorTotalServicio(20000);
      
 
         Factura factura2 = new Factura();
-        factura2.setNombreMascota("Lugar2");
+        factura2.setNombreMascota("Mishishi");
         factura2.setNombreMedico("Barbara Lillo");
-        factura2.setDetalleServicio("Accion 2");
+        factura2.setDetalleServicio("Vacunas");
         factura2.setValorTotalServicio(30000);
     
 
@@ -53,8 +53,8 @@ public class FacturaControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.get("/facturas"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$", Matchers.aMapWithSize(2)))
-                .andExpect(MockMvcResultMatchers.jsonPath("$._embedded.facturaList[0].nombreMascota", Matchers.is("Lugar1")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$._embedded.facturaList[1].nombreMascota", Matchers.is("Lugar2")));
+                .andExpect(MockMvcResultMatchers.jsonPath("$._embedded.facturaList[0].nombreMascota", Matchers.is("Firulais")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$._embedded.facturaList[1].nombreMascota", Matchers.is("Mishishi")));
                 
     }
 
@@ -62,9 +62,9 @@ public class FacturaControllerTest {
     public void obtenerFacturaPorIdTest() throws Exception {
         // Arrange
         Factura factura = new Factura();
-        factura.setNombreMascota("Lugar1");
+        factura.setNombreMascota("Firulais");
         factura.setNombreMedico("Nicolas Escobar");
-        factura.setDetalleServicio("Accion");
+        factura.setDetalleServicio("Consulta medica");
         factura.setValorTotalServicio(20000);
     
         when(facturaServicioMock.getFacturaById(1L)).thenReturn(Optional.of(factura));
@@ -72,9 +72,9 @@ public class FacturaControllerTest {
         // Act & Assert
         mockMvc.perform(MockMvcRequestBuilders.get("/facturas/1"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.nombreMascota").value("Lugar1"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.nombreMascota").value("Firulais"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.nombreMedico").value("Nicolas Escobar"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.detalleServicio").value("Accion"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.detalleServicio").value("Consulta medica"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.valorTotalServicio").value(20000));
     }
 
