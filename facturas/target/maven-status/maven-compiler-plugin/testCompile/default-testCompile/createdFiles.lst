@@ -1,0 +1,4 @@
+com\semana6\facturas\FacturasApplicationTests.class
+com\semana6\facturas\service\FacturasApplicationTests.class
+com\semana6\facturas\repository\FacturaRepositoryTest.class
+com\semana6\facturas\controller\FacturaControllerTest.class

@@ -1,0 +1,4 @@
+com\semana6\eventos\controller\EventoControllerTest.class
+com\semana6\eventos\EventosApplicationTests.class
+com\semana6\eventos\repository\EventoRepositoryTest.class
+com\semana6\eventos\service\EventosApplicationTests.class
